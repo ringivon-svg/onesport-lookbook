@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnESPORT // EDITORIAL LOOKBOOK & DROP STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Audio -->
+    <audio id="bg-audio" loop></audio>
+
+    <!-- Top Marquee Bar -->
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            <span>ONESPORT DROP 004 // LIMITED QUANTITIES WORLDWIDE // PHNOM PENH STOREFRONT // FREE EXPRESS SHIPPING ON ORDERS OVER $100 // NO RESTOCKS // ONESPORT DROP 004 // LIMITED QUANTITIES WORLDWIDE</span>
+            <span>ONESPORT DROP 004 // LIMITED QUANTITIES WORLDWIDE // PHNOM PENH STOREFRONT // FREE EXPRESS SHIPPING ON ORDERS OVER $100 // NO RESTOCKS // ONESPORT DROP 004 // LIMITED QUANTITIES WORLDWIDE</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">OnESPORT<span class="badge-tag">LOOKBOOK</span></a>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active" data-category="all">ALL DROPS</a>
+                <a href="#" class="nav-link" data-category="Jerseys">JERSEYS</a>
+                <a href="#" class="nav-link" data-category="Hoodies">HOODIES</a>
+                <a href="#" class="nav-link" data-category="Headwear">HEADWEAR</a>
+                <a href="#" class="nav-link" data-category="Peripherals">TECH GEAR</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="music-toggle" class="icon-btn" title="Audio Track"><i class="fa-solid fa-volume-xmark"></i></button>
+                <button id="admin-toggle" class="icon-btn" title="Admin Portal"><i class="fa-solid fa-sliders"></i></button>
+                <button id="cart-trigger" class="cart-btn">
+                    BAG [<span id="cart-count">0</span>]
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Lookbook Header -->
+    <section class="hero-editorial">
+        <div class="hero-wrapper">
+            <div class="drop-banner">
+                <span class="status-dot"></span> NEXT DROP COUNTDOWN: <span id="drop-timer">02d : 14h : 38m : 12s</span>
+            </div>
+            <h1 class="hero-title">UNSANCTIONED<br>PERFORMANCE.</h1>
+            <p class="hero-subtitle">High-density technical streetwear and tournament gear. Engineered in Phnom Penh for elite competitors.</p>
+        </div>
+    </section>
+
+    <!-- Category Filter Bar -->
+    <div class="category-strip">
+        <div class="category-buttons" id="category-tabs">
+            <button class="cat-btn active" data-filter="all">[ 00 ] ALL ARCHIVES</button>
+            <button class="cat-btn" data-filter="Jerseys">[ 01 ] JERSEYS</button>
+            <button class="cat-btn" data-filter="Hoodies">[ 02 ] HOODIES</button>
+            <button class="cat-btn" data-filter="Headwear">[ 03 ] HEADWEAR</button>
+            <button class="cat-btn" data-filter="Peripherals">[ 04 ] TECH GEAR</button>
+        </div>
+    </div>
+
+    <!-- Lookbook Asymmetrical Layout -->
+    <main class="main-container" id="lookbook-catalog">
+        <div class="asymmetric-grid" id="product-grid">
+            <!-- Dynamic asymmetrical product cards injected via app.js -->
+        </div>
+    </main>
+
+    <!-- Slide-Out Checkout Drawer -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content checkout-drawer">
+            <div class="modal-header">
+                <h3>[ CHECKOUT BAG ]</h3>
+                <button id="close-checkout" class="close-btn">&times;</button>
+            </div>
+            <div class="checkout-body">
+                <div class="cart-items-list" id="checkout-items-list">
+                    <!-- Items rendered here -->
+                </div>
+
+                <div class="checkout-summary">
+                    <div class="summary-line">
+                        <span>SUBTOTAL:</span>
+                        <span id="cart-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>LOCAL EXPRESS DELIVERY:</span>
+                        <span>$2.00</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>TOTAL DUE:</span>
+                        <span id="cart-total">$2.00</span>
+                    </div>
+                </div>
+
+                <form id="payment-form" class="checkout-form">
+                    <h4>SHIPPING & PAYMENT METHOD</h4>
+                    <div class="form-group">
+                        <label>FULL NAME</label>
+                        <input type="text" required placeholder="Vorn Rin">
+                    </div>
+                    <div class="form-group">
+                        <label>PHONE (TELEGRAM / ABA LINKED)</label>
+                        <input type="tel" required placeholder="+855 12 345 678">
+                    </div>
+                    <div class="form-group">
+                        <label>DELIVERY ADDRESS</label>
+                        <input type="text" required placeholder="Phnom Penh, Cambodia">
+                    </div>
+
+                    <div class="payment-selector">
+                        <label class="pay-option">
+                            <input type="radio" name="payment_method" value="aba" checked>
+                            <div class="pay-card">
+                                <strong>ABA PAY (KHQR)</strong>
+                                <small>Scan & Pay via ABA Mobile</small>
+                            </div>
+                        </label>
+                        <label class="pay-option">
+                            <input type="radio" name="payment_method" value="bakong">
+                            <div class="pay-card">
+                                <strong>Bakong / Wing KHQR</strong>
+                                <small>Universal local bank scan</small>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- KHQR QR Generator -->
+                    <div class="khqr-box">
+                        <p class="khqr-title"><i class="fa-solid fa-qrcode"></i> ABA PAY / BAKONG KHQR</p>
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ABA_PAY_ONESPORT_OFFICIAL_ACCOUNT_PHNOM_PENH" alt="ABA KHQR Code" class="khqr-img">
+                        <p class="khqr-merchant">MERCHANT: ONESPORT CAMBODIA</p>
+                    </div>
+
+                    <button type="submit" class="btn-checkout">CONFIRM & EXECUTE ORDER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Management Modal -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content admin-box">
+            <div class="modal-header">
+                <h3>[ ADMIN INVENTORY CONTROL ]</h3>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <form id="admin-form">
+                <div class="form-group">
+                    <label>ITEM NAME</label>
+                    <input type="text" id="item-title" required placeholder="e.g. OnESPORT Heavyweight Tactical Hoodie">
+                </div>
+                <div class="form-group">
+                    <label>CATEGORY</label>
+                    <select id="item-category" required>
+                        <option value="Jerseys">Jerseys</option>
+                        <option value="Hoodies">Hoodies</option>
+                        <option value="Headwear">Headwear</option>
+                        <option value="Peripherals">Peripherals</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>PRICE ($ USD)</label>
+                    <input type="number" id="item-price" step="0.01" required placeholder="85.00">
+                </div>
+                <div class="form-group">
+                    <label>SPECS / FABRIC (e.g. 500 GSM Cotton, Oversized Fit)</label>
+                    <input type="text" id="item-spec" placeholder="500 GSM French Terry Cotton">
+                </div>
+                <div class="form-group">
+                    <label>UPLOAD IMAGE FROM LOCAL GALLERY</label>
+                    <input type="file" id="item-image-file" accept="image/*">
+                    <small style="color: var(--text-muted); display: block; margin-top: 4px;">OR PASTE IMAGE URL:</small>
+                    <input type="url" id="item-image-url" placeholder="https://..." style="margin-top: 4px;">
+                </div>
+                <div class="form-group">
+                    <label>VIDEO PREVIEW URL (MP4)</label>
+                    <input type="url" id="item-video" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>EDITION BADGE</label>
+                    <input type="text" id="item-badge" placeholder="e.g. 1 OF 50 DROPPED">
+                </div>
+                <hr style="border-color: var(--border-color); margin: 1.5rem 0;">
+                <div class="form-group">
+                    <label>UPLOAD BACKGROUND AUDIO (MP3/OGG)</label>
+                    <input type="file" id="admin-audio-file" accept="audio/*">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-checkout">ADD TO LOOKBOOK</button>
+                    <button type="button" id="reset-defaults" class="btn-outline-alt">RESET DEFAULT CATALOG</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 ONESPORT ARCHIVE // ALL RIGHTS RESERVED // PHNOM PENH, CAMBODIA</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
